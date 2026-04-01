@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ALIGN — Feel Everything. Miss Nothing.</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream: #F7F4EF;
@@ -14,10 +14,10 @@
     --accent-green: #4CAF82;
     --accent-warm: #C4956A;
     --white: #FFFFFF;
+    --danger: #E07060;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -26,6 +26,68 @@
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(247,244,239,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .nav-logo {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--warm-dark); }
+
+  /* GLOBAL SECTION */
+  section {
+    padding: 120px 80px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--accent-warm);
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 4.5vw, 68px);
+    font-weight: 300;
+    line-height: 1.05;
+    max-width: 700px;
+    margin-bottom: 80px;
   }
 
   /* HERO */
@@ -47,7 +109,6 @@
   }
 
   .hero-eyebrow {
-    font-family: 'DM Sans', sans-serif;
     font-size: 10px;
     font-weight: 400;
     letter-spacing: 0.35em;
@@ -78,7 +139,7 @@
     font-size: 15px;
     line-height: 1.7;
     color: var(--mid);
-    max-width: 380px;
+    max-width: 420px;
     margin-bottom: 56px;
     opacity: 0;
     animation: fadeUp 0.9s ease forwards 0.6s;
@@ -90,11 +151,11 @@
     gap: 16px;
     opacity: 0;
     animation: fadeUp 0.9s ease forwards 0.8s;
+    flex-wrap: wrap;
   }
 
-  .btn-primary {
-    background: var(--warm-dark);
-    color: var(--cream);
+  .btn-primary,
+  .btn-secondary {
     border: none;
     padding: 16px 36px;
     font-family: 'DM Sans', sans-serif;
@@ -104,9 +165,24 @@
     text-transform: uppercase;
     cursor: pointer;
     border-radius: 2px;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: var(--warm-dark);
+    color: var(--cream);
   }
   .btn-primary:hover { background: var(--accent-warm); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--warm-dark);
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+  .btn-secondary:hover {
+    background: var(--white);
+    border-color: rgba(0,0,0,0.15);
+  }
 
   .scroll-hint {
     font-size: 11px;
@@ -139,7 +215,6 @@
   }
 
   .device-label {
-    font-family: 'DM Sans', sans-serif;
     font-size: 13px;
     font-weight: 300;
     letter-spacing: 0.2em;
@@ -174,11 +249,13 @@
     border-radius: 12px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.08);
   }
+
   .hero-stat .num {
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
     font-weight: 300;
   }
+
   .hero-stat .label {
     font-size: 10px;
     color: var(--mid);
@@ -186,69 +263,14 @@
     text-transform: uppercase;
     margin-top: 2px;
   }
+
   .stat-1 { top: 22%; left: 8%; opacity: 0; animation: fadeUp 0.8s ease forwards 1.4s; }
   .stat-2 { bottom: 22%; right: 8%; opacity: 0; animation: fadeUp 0.8s ease forwards 1.6s; }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 24px 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(247,244,239,0.9);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-  .nav-logo {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-  }
-  .nav-links {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--mid);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--warm-dark); }
-
-  /* SECTIONS */
-  section {
-    padding: 120px 80px;
-  }
 
   /* HOW IT WORKS */
   .how-section {
     background: var(--warm-dark);
     color: var(--cream);
-  }
-  .section-label {
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--accent-warm);
-    margin-bottom: 20px;
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 4.5vw, 68px);
-    font-weight: 300;
-    line-height: 1.05;
-    max-width: 600px;
-    margin-bottom: 80px;
   }
 
   .steps-grid {
@@ -256,6 +278,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 60px;
   }
+
   .step-num {
     font-family: 'Cormorant Garamond', serif;
     font-size: 56px;
@@ -264,6 +287,7 @@
     line-height: 1;
     margin-bottom: 20px;
   }
+
   .step-title {
     font-size: 14px;
     font-weight: 400;
@@ -271,6 +295,7 @@
     margin-bottom: 12px;
     color: var(--cream);
   }
+
   .step-desc {
     font-size: 13px;
     line-height: 1.7;
@@ -296,6 +321,7 @@
     transition: background 0.3s ease;
     cursor: default;
   }
+
   .feature-card:hover { background: var(--white); }
 
   .feature-icon {
@@ -341,12 +367,14 @@
     background: var(--stone);
     text-align: center;
   }
+
   .metrics-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     margin-top: 80px;
   }
+
   .metric-num {
     font-family: 'Cormorant Garamond', serif;
     font-size: 64px;
@@ -354,10 +382,12 @@
     line-height: 1;
     color: var(--warm-dark);
   }
+
   .metric-unit {
     font-size: 20px;
     vertical-align: super;
   }
+
   .metric-label {
     font-size: 11px;
     letter-spacing: 0.15em;
@@ -366,11 +396,244 @@
     margin-top: 12px;
   }
 
+  /* PRICING */
+  .pricing-section {
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  .pricing-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .pricing-subtext {
+    max-width: 420px;
+    color: var(--mid);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .pricing-carousel-wrap {
+    position: relative;
+  }
+
+  .pricing-carousel {
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  .pricing-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+    will-change: transform;
+  }
+
+  .plan-slide {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .plan-content {
+    padding: 54px;
+  }
+
+  .plan-visual {
+    background: var(--warm-dark);
+    color: var(--cream);
+    padding: 54px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .plan-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.05);
+    color: var(--mid);
+    margin-bottom: 22px;
+  }
+
+  .plan-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  .plan-summary {
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 30px;
+  }
+
+  .plan-price-row {
+    display: flex;
+    align-items: end;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+
+  .plan-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 66px;
+    line-height: 0.95;
+    font-weight: 300;
+  }
+
+  .plan-period {
+    font-size: 14px;
+    color: var(--mid);
+    padding-bottom: 8px;
+  }
+
+  .plan-features {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 20px;
+    margin-bottom: 34px;
+  }
+
+  .plan-features li {
+    font-size: 13px;
+    color: var(--warm-dark);
+    line-height: 1.5;
+    position: relative;
+    padding-left: 18px;
+  }
+
+  .plan-features li::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-green);
+    position: absolute;
+    left: 0;
+    top: 7px;
+  }
+
+  .plan-kpi {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .plan-kpi-card {
+    padding: 18px 20px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .plan-kpi-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(247,244,239,0.45);
+    margin-bottom: 8px;
+  }
+
+  .plan-kpi-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 300;
+  }
+
+  .plan-note {
+    margin-top: 24px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(247,244,239,0.58);
+    max-width: 300px;
+  }
+
+  .pricing-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 26px;
+    gap: 20px;
+  }
+
+  .pricing-dots {
+    display: flex;
+    gap: 10px;
+  }
+
+  .pricing-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.12);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+
+  .pricing-dot.active {
+    background: var(--accent-warm);
+    transform: scale(1.1);
+  }
+
+  .pricing-arrows {
+    display: flex;
+    gap: 12px;
+  }
+
+  .arrow-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: var(--white);
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--warm-dark);
+    transition: all 0.2s ease;
+  }
+
+  .arrow-btn:hover {
+    background: var(--warm-dark);
+    color: var(--cream);
+    border-color: var(--warm-dark);
+  }
+
+  .plan-highlight {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-warm);
+  }
+
   /* LIVE DEMO */
   .demo-section {
     background: var(--white);
     padding: 120px 80px;
   }
+
   .demo-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -378,12 +641,14 @@
     align-items: center;
     margin-top: 80px;
   }
+
   .demo-device-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
   }
+
   .demo-device {
     width: 180px;
     height: 180px;
@@ -395,12 +660,13 @@
     justify-content: center;
     position: relative;
   }
+
   .demo-device-label {
-    font-family: 'DM Sans', sans-serif;
     font-size: 12px;
     letter-spacing: 0.25em;
     color: var(--mid);
   }
+
   .demo-dot {
     position: absolute;
     bottom: 46px;
@@ -420,6 +686,7 @@
     align-items: center;
     gap: 8px;
   }
+
   .demo-status::before {
     content: '';
     width: 6px;
@@ -435,17 +702,20 @@
     padding: 36px;
     color: var(--cream);
   }
+
   .dash-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
   }
+
   .dash-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 22px;
     font-weight: 300;
   }
+
   .dash-time {
     font-size: 11px;
     color: rgba(247,244,239,0.4);
@@ -458,12 +728,14 @@
     gap: 16px;
     margin-bottom: 24px;
   }
+
   .dash-card {
     background: rgba(255,255,255,0.05);
     border-radius: 12px;
     padding: 18px;
     border: 1px solid rgba(255,255,255,0.06);
   }
+
   .dash-card-label {
     font-size: 9px;
     letter-spacing: 0.2em;
@@ -471,23 +743,27 @@
     color: rgba(247,244,239,0.4);
     margin-bottom: 10px;
   }
+
   .dash-card-val {
     font-family: 'Cormorant Garamond', serif;
     font-size: 32px;
     font-weight: 300;
     line-height: 1;
   }
+
   .dash-card-unit {
     font-size: 12px;
     color: rgba(247,244,239,0.5);
     margin-left: 2px;
   }
+
   .dash-card-trend {
     font-size: 10px;
     margin-top: 6px;
   }
+
   .trend-up { color: var(--accent-green); }
-  .trend-down { color: #E07060; }
+  .trend-down { color: var(--danger); }
 
   .dash-bar-row {
     background: rgba(255,255,255,0.05);
@@ -495,6 +771,7 @@
     padding: 20px;
     border: 1px solid rgba(255,255,255,0.06);
   }
+
   .bar-label-row {
     display: flex;
     justify-content: space-between;
@@ -504,25 +781,33 @@
     text-transform: uppercase;
     margin-bottom: 12px;
   }
+
   .bar-track {
     height: 4px;
     background: rgba(255,255,255,0.1);
     border-radius: 2px;
     overflow: hidden;
   }
+
   .bar-fill {
     height: 100%;
     border-radius: 2px;
     background: var(--accent-green);
     transition: width 1.5s cubic-bezier(0.22,1,0.36,1);
   }
-  .bars-stack { display: flex; flex-direction: column; gap: 12px; }
+
+  .bars-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
   /* BODY CANVAS */
   .body-section {
     background: var(--cream);
     padding: 120px 80px;
   }
+
   .body-grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -542,7 +827,6 @@
     justify-content: center;
   }
 
-  /* SVG body silhouette */
   .body-canvas svg.body-svg {
     opacity: 0.2;
     width: 140px;
@@ -561,6 +845,7 @@
     justify-content: center;
     cursor: pointer;
   }
+
   .sensor-dot::after {
     content: '';
     width: 8px;
@@ -588,6 +873,7 @@
     transform: translateY(-50%);
     opacity: 1;
   }
+
   .sensor-tooltip::before {
     content: '';
     position: absolute;
@@ -604,6 +890,7 @@
     flex-direction: column;
     gap: 24px;
   }
+
   .insight-item {
     padding: 24px;
     border-radius: 12px;
@@ -611,18 +898,22 @@
     border-left: 3px solid transparent;
     transition: border-color 0.3s;
   }
+
   .insight-item:hover { border-color: var(--accent-green); }
+
   .insight-title {
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.05em;
     margin-bottom: 6px;
   }
+
   .insight-desc {
     font-size: 12px;
     color: var(--mid);
     line-height: 1.6;
   }
+
   .insight-badge {
     display: inline-block;
     margin-top: 8px;
@@ -649,6 +940,7 @@
     position: relative;
     overflow: hidden;
   }
+
   .closing-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(48px, 6vw, 96px);
@@ -658,14 +950,16 @@
     position: relative;
     z-index: 2;
   }
+
   .closing-sub {
     font-size: 15px;
     color: rgba(247,244,239,0.5);
-    max-width: 480px;
+    max-width: 560px;
     line-height: 1.7;
     position: relative;
     z-index: 2;
   }
+
   .closing-circle {
     position: absolute;
     width: 600px;
@@ -685,11 +979,13 @@
     position: relative;
     z-index: 2;
   }
+
   .tagline-line {
     width: 60px;
     height: 1px;
     background: rgba(247,244,239,0.2);
   }
+
   .tagline-text {
     font-family: 'Cormorant Garamond', serif;
     font-size: 20px;
@@ -718,15 +1014,111 @@
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
+
   .fade-in-section.visible {
     opacity: 1;
     transform: none;
   }
 
-  /* Scrollbar */
+  /* SCROLLBAR */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--cream); }
   ::-webkit-scrollbar-thumb { background: var(--stone); border-radius: 2px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    nav {
+      padding: 20px 28px;
+    }
+
+    section,
+    .demo-section,
+    .body-section {
+      padding: 100px 28px;
+    }
+
+    .hero {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-left {
+      padding: 140px 28px 80px;
+    }
+
+    .hero-right {
+      min-height: 420px;
+    }
+
+    .steps-grid,
+    .metrics-grid,
+    .dash-row,
+    .body-grid,
+    .demo-grid,
+    .plan-slide {
+      grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .plan-content,
+    .plan-visual {
+      padding: 36px 28px;
+    }
+
+    .plan-features {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .nav-links {
+      display: none;
+    }
+
+    .hero-title {
+      font-size: clamp(52px, 14vw, 72px);
+    }
+
+    .section-title {
+      margin-bottom: 50px;
+    }
+
+    .metrics-grid {
+      gap: 28px;
+    }
+
+    .metric-num {
+      font-size: 52px;
+    }
+
+    .dashboard {
+      padding: 24px;
+    }
+
+    .plan-name {
+      font-size: 42px;
+    }
+
+    .plan-price {
+      font-size: 54px;
+    }
+
+    .tagline-block {
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .tagline-line {
+      width: 36px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -736,6 +1128,7 @@
   <ul class="nav-links">
     <li><a href="#how">How It Works</a></li>
     <li><a href="#features">Features</a></li>
+    <li><a href="#pricing">Plans</a></li>
     <li><a href="#demo">Live Data</a></li>
     <li><a href="#closing">About</a></li>
   </ul>
@@ -746,24 +1139,32 @@
   <div class="hero-left">
     <p class="hero-eyebrow">Introducing Align — Wearable Intelligence</p>
     <h1 class="hero-title">Your body<br>has a <em>story</em><br>to tell.</h1>
-    <p class="hero-desc">A discreet skin patch that continuously reads your posture, stress response, screen exposure, and emotional state — translating your body's signals into clarity.</p>
+    <p class="hero-desc">
+      A discreet skin patch that continuously reads posture, stress response, screen exposure,
+      and emotional state — translating body signals into clear, daily insight.
+    </p>
     <div class="hero-cta">
       <button class="btn-primary" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">Discover Align</button>
+      <button class="btn-secondary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">View Plans</button>
       <span class="scroll-hint">↓ Scroll to explore</span>
     </div>
   </div>
+
   <div class="hero-right">
     <div class="ring ring-1"></div>
     <div class="ring ring-2"></div>
     <div class="ring ring-3"></div>
+
     <div class="hero-stat stat-1">
       <div class="num">98<span style="font-size:16px">%</span></div>
       <div class="label">Sensor accuracy</div>
     </div>
+
     <div class="hero-device">
       <span class="device-label">ALIGN</span>
       <div class="device-dot"></div>
     </div>
+
     <div class="hero-stat stat-2">
       <div class="num">72<span style="font-size:16px">hr</span></div>
       <div class="label">Battery life</div>
@@ -775,21 +1176,33 @@
 <section class="how-section fade-in-section" id="how">
   <p class="section-label">The technology</p>
   <h2 class="section-title">Worn once. Learns<br><em style="font-family:'Cormorant Garamond',serif;font-style:italic;">always.</em></h2>
+
   <div class="steps-grid">
     <div>
       <div class="step-num">01</div>
       <div class="step-title">Apply to Skin</div>
-      <p class="step-desc">A soft, medical-grade adhesive patch — barely larger than a coin — sits comfortably on your upper back. It's waterproof, breathable, and invisible under clothing.</p>
+      <p class="step-desc">
+        A soft, medical-grade adhesive patch — barely larger than a coin — sits comfortably on your upper back.
+        It is waterproof, breathable, and invisible under clothing.
+      </p>
     </div>
+
     <div>
       <div class="step-num">02</div>
       <div class="step-title">Continuous Sensing</div>
-      <p class="step-desc">Six embedded biosensors capture IMU data for posture, galvanic skin response for stress, ambient light for screen time, heart rate variability, temperature, and micro-movement patterns.</p>
+      <p class="step-desc">
+        Six embedded biosensors capture IMU data for posture, galvanic skin response for stress,
+        ambient light for screen time, heart rate variability, temperature, and micro-movement patterns.
+      </p>
     </div>
+
     <div>
       <div class="step-num">03</div>
       <div class="step-title">Intelligent Insight</div>
-      <p class="step-desc">Raw sensor data is processed by on-device AI and synced to the Align app. Patterns emerge over days. Personalized nudges arrive exactly when you need them.</p>
+      <p class="step-desc">
+        Raw sensor data is processed by on-device AI and synced to the Align app.
+        Patterns emerge over time, and personalized nudges arrive when they matter most.
+      </p>
     </div>
   </div>
 </section>
@@ -798,8 +1211,8 @@
 <section class="features-section fade-in-section" id="features">
   <p class="section-label">What Align tracks</p>
   <h2 class="section-title" style="margin-bottom:60px;">Six dimensions<br>of you.</h2>
-  <div class="features-grid">
 
+  <div class="features-grid">
     <div class="feature-card">
       <div class="feature-icon">
         <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -833,7 +1246,7 @@
         </svg>
       </div>
       <h3 class="feature-title">Screen Time Exposure</h3>
-      <p class="feature-desc">Ambient light spectrum sensors detect blue light saturation and proximity patterns to screens — tracking digital exposure without any phone integration required.</p>
+      <p class="feature-desc">Ambient light spectrum sensors detect blue light saturation and proximity patterns to screens — tracking digital exposure without requiring phone integration.</p>
       <span class="feature-tag">Light Sensing</span>
     </div>
 
@@ -857,7 +1270,7 @@
         </svg>
       </div>
       <h3 class="feature-title">Activity & Recovery</h3>
-      <p class="feature-desc">Classify sedentary periods, active bursts, and recovery windows. Align integrates with your calendar to match physical state against your commitments.</p>
+      <p class="feature-desc">Classify sedentary periods, active bursts, and recovery windows. Align can contextualize physical state against routine and workload.</p>
       <span class="feature-tag">Motion AI</span>
     </div>
 
@@ -869,10 +1282,9 @@
         </svg>
       </div>
       <h3 class="feature-title">Circadian Rhythm</h3>
-      <p class="feature-desc">Monitor your energy rhythms throughout the day. Align learns your chronotype and surfaces your peak focus, social, and rest windows with pinpoint precision.</p>
+      <p class="feature-desc">Monitor energy patterns throughout the day. Align learns chronotype and surfaces your peak focus, social, and rest windows with precision.</p>
       <span class="feature-tag">Temporal AI</span>
     </div>
-
   </div>
 </section>
 
@@ -880,9 +1292,10 @@
 <section class="metrics-section fade-in-section">
   <p class="section-label">Align by the numbers</p>
   <h2 class="section-title" style="margin: 0 auto; text-align:center;">Built to<br>last.</h2>
+
   <div class="metrics-grid">
     <div>
-      <div class="metric-num"><span class="metric-unit" style="font-size:32px"></span>6</div>
+      <div class="metric-num">6</div>
       <div class="metric-label">Biosensors on board</div>
     </div>
     <div>
@@ -900,50 +1313,245 @@
   </div>
 </section>
 
+<!-- PRICING -->
+<section class="pricing-section fade-in-section" id="pricing">
+  <div class="pricing-top">
+    <div>
+      <p class="section-label">Payment plans</p>
+      <h2 class="section-title" style="margin-bottom:0;">Flexible plans<br>for every user.</h2>
+    </div>
+    <p class="pricing-subtext">
+      A clean three-tier structure for presentation: entry access with Free,
+      a premium everyday option with Gold, and a full-feature professional tier with Platinum.
+    </p>
+  </div>
+
+  <div class="pricing-carousel-wrap">
+    <div class="pricing-carousel">
+      <div class="pricing-track" id="pricingTrack">
+
+        <!-- FREE -->
+        <article class="plan-slide">
+          <div class="plan-content">
+            <span class="plan-badge">Starter access</span>
+            <h3 class="plan-name">Free</h3>
+            <p class="plan-summary">
+              A lightweight entry tier designed to introduce users to Align’s core experience
+              with essential tracking and a simplified dashboard.
+            </p>
+
+            <div class="plan-price-row">
+              <div class="plan-price">$0</div>
+              <div class="plan-period">/ month</div>
+            </div>
+
+            <ul class="plan-features">
+              <li>Basic posture score</li>
+              <li>Daily stress summary</li>
+              <li>Limited dashboard history</li>
+              <li>1 device connection</li>
+              <li>Weekly wellness report</li>
+              <li>Email support</li>
+            </ul>
+
+            <button class="btn-primary">Get Started</button>
+            <div class="plan-highlight">Ideal for trial and onboarding</div>
+          </div>
+
+          <div class="plan-visual">
+            <div class="plan-kpi">
+              <div class="plan-kpi-card">
+                <div class="plan-kpi-label">History Access</div>
+                <div class="plan-kpi-value">7 Days</div>
+              </div>
+              <div class="plan-kpi-card">
+                <div class="plan-kpi-label">Insights Included</div>
+                <div class="plan-kpi-value">Core</div>
+              </div>
+              <div class="plan-kpi-card">
+                <div class="plan-kpi-label">Target User</div>
+                <div class="plan-kpi-value">New Users</div>
+              </div>
+            </div>
+            <p class="plan-note">
+              Best used as a low-friction acquisition plan. Strong for demos,
+              freemium adoption, and product discovery.
+            </p>
+          </div>
+        </article>
+
+        <!-- GOLD -->
+        <article class="plan-slide">
+          <div class="plan-content">
+            <span class="plan-badge">Most popular</span>
+            <h3 class="plan-name">Gold</h3>
+            <p class="plan-summary">
+              The main commercial tier for active users who want richer analytics,
+              real-time coaching, and longer history for measurable improvement.
+            </p>
+
+            <div class="plan-price-row">
+              <div class="plan-price">$19</div>
+              <div class="plan-period">/ month</div>
+            </div>
+
+            <ul class="plan-features">
+              <li>Real-time posture alerts</li>
+              <li>Advanced stress analytics</li>
+              <li>90-day data history</li>
+              <li>Personalized wellness nudges</li>
+              <li>Full dashboard access</li>
+              <li>Priority support</li>
+            </ul>
+
+            <button class="btn-primary">Choose Gold</button>
+            <div class="plan-highlight">Best balance of value and features</div>
+          </div>
+
+          <div class="plan-visual">
+            <div class="plan-kpi">
+              <div class="plan-kpi-card">
+                <div class="plan-kpi-label">History Access</div>
+                <div class="plan-kpi-value">90 Days</div>
+              </div>
+              <div class="plan-kpi-card">
+                <div class="plan-kpi-label">Coaching Layer</div>
+                <div class="plan-kpi-value">Included</div>
+              </div>
+              <div class="plan-kpi-card">
+                <div class="plan-kpi-label">Target User</div>
+                <div class="plan-kpi-value">Everyday Use</div>
+              </div>
+            </div>
+            <p class="plan-note">
+              This should be your anchor tier in the presentation.
+              It feels realistic, monetizable, and easy to justify.
+            </p>
+          </div>
+        </article>
+
+        <!-- PLATINUM -->
+        <article class="plan-slide">
+          <div class="plan-content">
+            <span class="plan-badge">Premium tier</span>
+            <h3 class="plan-name">Platinum</h3>
+            <p class="plan-summary">
+              The highest-value plan for power users, clinics, executives,
+              and performance-driven customers who need the most complete Align experience.
+            </p>
+
+            <div class="plan-price-row">
+              <div class="plan-price">$39</div>
+              <div class="plan-period">/ month</div>
+            </div>
+
+            <ul class="plan-features">
+              <li>Everything in Gold</li>
+              <li>Full-year data retention</li>
+              <li>Multi-sensor expansion support</li>
+              <li>Clinical-grade reporting export</li>
+              <li>Predictive recovery insights</li>
+              <li>Dedicated premium support</li>
+            </ul>
+
+            <button class="btn-primary">Go Platinum</button>
+            <div class="plan-highlight">Highest ARPU and strongest retention case</div>
+          </div>
+
+          <div class="plan-visual">
+            <div class="plan-kpi">
+              <div class="plan-kpi-card">
+                <div class="plan-kpi-label">History Access</div>
+                <div class="plan-kpi-value">12 Months</div>
+              </div>
+              <div class="plan-kpi-card">
+                <div class="plan-kpi-label">Reporting Depth</div>
+                <div class="plan-kpi-value">Advanced</div>
+              </div>
+              <div class="plan-kpi-card">
+                <div class="plan-kpi-label">Target User</div>
+                <div class="plan-kpi-value">Pro / Clinical</div>
+              </div>
+            </div>
+            <p class="plan-note">
+              Strong premium positioning for enterprise pilots, specialists,
+              and users who want deeper performance visibility.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="pricing-controls">
+      <div class="pricing-dots">
+        <button class="pricing-dot active" data-slide="0" aria-label="Free plan"></button>
+        <button class="pricing-dot" data-slide="1" aria-label="Gold plan"></button>
+        <button class="pricing-dot" data-slide="2" aria-label="Platinum plan"></button>
+      </div>
+
+      <div class="pricing-arrows">
+        <button class="arrow-btn" id="prevPlan" aria-label="Previous plan">←</button>
+        <button class="arrow-btn" id="nextPlan" aria-label="Next plan">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- LIVE DEMO -->
 <section class="demo-section fade-in-section" id="demo">
   <p class="section-label">Live dashboard</p>
   <h2 class="section-title">Your data,<br>in real time.</h2>
+
   <div class="demo-grid">
     <div class="demo-device-wrap">
       <div class="demo-device">
-        <span class="demo-device-label" style="font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:0.25em;color:var(--mid);">ALIGN</span>
+        <span class="demo-device-label">ALIGN</span>
         <div class="demo-dot"></div>
       </div>
       <div class="demo-status">Active & Transmitting</div>
-      <p style="font-size:12px;color:var(--mid);text-align:center;max-width:200px;line-height:1.6;">Worn on upper back. Syncing every 30 seconds via BLE 5.2.</p>
+      <p style="font-size:12px;color:var(--mid);text-align:center;max-width:220px;line-height:1.6;">
+        Worn on upper back. Syncing every 30 seconds via BLE 5.2.
+      </p>
     </div>
+
     <div class="dashboard" id="liveBoard">
       <div class="dash-header">
         <span class="dash-title">Today's Overview</span>
         <span class="dash-time" id="liveTime">—</span>
       </div>
+
       <div class="dash-row">
         <div class="dash-card">
           <div class="dash-card-label">Posture Score</div>
           <div class="dash-card-val" id="postureVal">78<span class="dash-card-unit">/100</span></div>
           <div class="dash-card-trend trend-up" id="postureTrend">↑ Improving</div>
         </div>
+
         <div class="dash-card">
           <div class="dash-card-label">Stress Level</div>
           <div class="dash-card-val" id="stressVal">42<span class="dash-card-unit">/100</span></div>
           <div class="dash-card-trend trend-up" id="stressTrend">↓ Calm</div>
         </div>
+
         <div class="dash-card">
           <div class="dash-card-label">Mood Index</div>
           <div class="dash-card-val" id="moodVal">7.2<span class="dash-card-unit">/10</span></div>
           <div class="dash-card-trend trend-up">↑ Positive</div>
         </div>
       </div>
+
       <div class="bars-stack">
         <div class="dash-bar-row">
           <div class="bar-label-row"><span>Screen Time Today</span><span id="screenTime">4h 20m</span></div>
           <div class="bar-track"><div class="bar-fill" id="screenBar" style="width:60%;background:#C4956A;"></div></div>
         </div>
+
         <div class="dash-bar-row">
           <div class="bar-label-row"><span>Activity Level</span><span>Moderate</span></div>
           <div class="bar-track"><div class="bar-fill" id="actBar" style="width:55%;"></div></div>
         </div>
+
         <div class="dash-bar-row">
           <div class="bar-label-row"><span>Recovery Quality</span><span>Good</span></div>
           <div class="bar-track"><div class="bar-fill" id="recBar" style="width:73%;"></div></div>
@@ -957,33 +1565,46 @@
 <section class="body-section fade-in-section">
   <p class="section-label">Sensor placement</p>
   <h2 class="section-title">One patch.<br>Full-body<br>awareness.</h2>
+
   <div class="body-grid">
     <div class="body-canvas">
-      <!-- minimal body silhouette -->
       <svg class="body-svg" viewBox="0 0 100 220" fill="none" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="50" cy="20" rx="16" ry="18" stroke="#1A1814" stroke-width="2"/>
         <path d="M34 38 Q20 50 18 80 L30 80 L28 130 L50 130 L72 130 L70 80 L82 80 Q80 50 66 38 Z" stroke="#1A1814" stroke-width="2" fill="none"/>
         <path d="M28 130 L24 180 L34 180 L38 155 L50 155 L62 155 L66 180 L76 180 L72 130" stroke="#1A1814" stroke-width="2" fill="none"/>
       </svg>
+
       <div class="sensor-dot s-spine"></div>
       <div class="sensor-dot s-lower"></div>
       <div class="sensor-dot s-shoulder"></div>
       <div class="sensor-tooltip">Cervical sensor active</div>
     </div>
+
     <div class="body-insights">
       <div class="insight-item">
         <div class="insight-title">Upper Back (Primary Sensor)</div>
-        <p class="insight-desc">The primary module sits between the shoulder blades — the optimal location for spinal curvature, movement, and proximity to the thoracic nerves that govern stress response.</p>
+        <p class="insight-desc">
+          The primary module sits between the shoulder blades — an optimal location for spinal curvature,
+          movement analysis, and thoracic-region signal capture.
+        </p>
         <span class="insight-badge">Main Module</span>
       </div>
+
       <div class="insight-item">
         <div class="insight-title">Wireless Companion Pods</div>
-        <p class="insight-desc">Optional secondary adhesive dots (sold separately) can be placed on the lower back and shoulder to triangulate full spinal data for clinical use cases.</p>
+        <p class="insight-desc">
+          Optional secondary adhesive dots can be placed on the lower back and shoulder
+          to triangulate fuller spinal data for premium or clinical use cases.
+        </p>
         <span class="insight-badge">Optional</span>
       </div>
+
       <div class="insight-item">
         <div class="insight-title">Medical-Grade Adhesive</div>
-        <p class="insight-desc">Hypoallergenic, latex-free adhesive patch. Worn 24–72 hours continuously. Replaced weekly. Gentle on sensitive skin with no irritation in 94% of users in trials.</p>
+        <p class="insight-desc">
+          Hypoallergenic, latex-free adhesive patch. Worn 24–72 hours continuously and replaced weekly.
+          Gentle on sensitive skin while maintaining secure placement.
+        </p>
         <span class="insight-badge">Skin-Safe</span>
       </div>
     </div>
@@ -993,9 +1614,13 @@
 <!-- CLOSING -->
 <section class="closing fade-in-section" id="closing">
   <div class="closing-circle"></div>
-  <p class="section-label" style="color:var(--accent-warm);">Align — 2025</p>
+  <p class="section-label" style="color:var(--accent-warm);">Align — 2026</p>
   <h2 class="closing-title">Feel everything.<br>Miss nothing.</h2>
-  <p class="closing-sub">Align doesn't change how you live. It illuminates how you already do — and gently guides you toward a version of yourself you'll actually sustain.</p>
+  <p class="closing-sub">
+    Align does not ask users to change who they are. It makes their patterns visible,
+    measurable, and easier to improve — with calm, intelligent support built into everyday life.
+  </p>
+
   <div class="tagline-block">
     <div class="tagline-line"></div>
     <span class="tagline-text">Intelligence that wears itself.</span>
@@ -1006,9 +1631,9 @@
 <script>
   // Intersection observer for fade-in sections
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
     });
   }, { threshold: 0.1 });
@@ -1018,17 +1643,23 @@
   // Live clock
   function updateTime() {
     const now = new Date();
-    document.getElementById('liveTime').textContent =
-      now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    const timeEl = document.getElementById('liveTime');
+    if (timeEl) {
+      timeEl.textContent = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    }
   }
   setInterval(updateTime, 1000);
   updateTime();
 
   // Animate live values
   const metrics = [
-    { id: 'postureVal', base: 74, range: 10, unit: '/100', trendId: 'postureTrend', trendUp: '↑ Improving', trendDown: '↓ Watch posture' },
-    { id: 'stressVal', base: 38, range: 20, unit: '/100', trendId: 'stressTrend', trendUp: '↓ Calm', trendDown: '↑ Stress rising' },
-    { id: 'moodVal', base: 6.8, range: 2, unit: '/10', decimals: 1 },
+    { id: 'postureVal', base: 74, range: 10, unit: '/100' },
+    { id: 'stressVal', base: 38, range: 20, unit: '/100' },
+    { id: 'moodVal', base: 6.8, range: 2, unit: '/10', decimals: 1 }
   ];
 
   setInterval(() => {
@@ -1040,17 +1671,75 @@
         : Math.round(m.base + Math.random() * m.range);
       el.innerHTML = val + `<span class="dash-card-unit">${m.unit}</span>`;
     });
-    // Animate bars slightly
-    const sb = document.getElementById('screenBar');
-    if (sb) sb.style.width = (55 + Math.random() * 15) + '%';
+
+    const screenBar = document.getElementById('screenBar');
+    if (screenBar) screenBar.style.width = (55 + Math.random() * 15) + '%';
+
+    const actBar = document.getElementById('actBar');
+    if (actBar) actBar.style.width = (48 + Math.random() * 18) + '%';
+
+    const recBar = document.getElementById('recBar');
+    if (recBar) recBar.style.width = (65 + Math.random() * 15) + '%';
   }, 3000);
 
-  // Stagger bar animation on load
-  setTimeout(() => {
-    document.getElementById('actBar') && (document.getElementById('actBar').style.width = '55%');
-    document.getElementById('recBar') && (document.getElementById('recBar').style.width = '73%');
-    document.getElementById('screenBar') && (document.getElementById('screenBar').style.width = '60%');
-  }, 400);
+  // Pricing carousel
+  const pricingTrack = document.getElementById('pricingTrack');
+  const pricingDots = document.querySelectorAll('.pricing-dot');
+  const prevPlan = document.getElementById('prevPlan');
+  const nextPlan = document.getElementById('nextPlan');
+
+  let currentPlan = 0;
+  const totalPlans = 3;
+  let pricingInterval;
+
+  function updatePricingCarousel(index) {
+    currentPlan = index;
+    pricingTrack.style.transform = `translateX(-${index * 100}%)`;
+
+    pricingDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextPricingPlan() {
+    const next = (currentPlan + 1) % totalPlans;
+    updatePricingCarousel(next);
+  }
+
+  function prevPricingPlan() {
+    const prev = (currentPlan - 1 + totalPlans) % totalPlans;
+    updatePricingCarousel(prev);
+  }
+
+  if (nextPlan) nextPlan.addEventListener('click', () => {
+    nextPricingPlan();
+    resetPricingAutoplay();
+  });
+
+  if (prevPlan) prevPlan.addEventListener('click', () => {
+    prevPricingPlan();
+    resetPricingAutoplay();
+  });
+
+  pricingDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      updatePricingCarousel(Number(dot.dataset.slide));
+      resetPricingAutoplay();
+    });
+  });
+
+  function startPricingAutoplay() {
+    pricingInterval = setInterval(nextPricingPlan, 4500);
+  }
+
+  function resetPricingAutoplay() {
+    clearInterval(pricingInterval);
+    startPricingAutoplay();
+  }
+
+  updatePricingCarousel(0);
+  startPricingAutoplay();
 </script>
+
 </body>
 </html>
